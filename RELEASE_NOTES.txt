@@ -1,0 +1,32 @@
+HOSPITAL & CLINIC CRM - UPDATE NOTES
+
+Added / improved:
+- Automatic consultation invoice generation is shared by both completion paths:
+  1) reception/admin status update to Completed
+  2) doctor saves a consultation and the appointment is marked Completed
+- Duplicate invoice prevention by locking the appointment row inside a transaction.
+- Invoice register search and status/date filters.
+- Manual invoice creation for admin/super admin.
+- Transaction-safe payment recording with balance validation, method and reference.
+- Invoice details with patient, clinic, doctor and appointment information.
+- A4-friendly print / Save as PDF layout with payment history.
+- Doctor-only invoice history and patient-only invoice history with access checks.
+- Weekly doctor schedule management.
+- Appointment booking time options are generated from doctor weekday schedules and validated again on the server.
+- Department management and activation controls.
+- Consultation duplicate protection.
+- Removed an obsolete database helper containing hard-coded hosting credentials; database diagnostics now use the configured PDO connection and require super-admin access.
+
+Database:
+- No new tables are required when using this project's current schema.sql.
+- Back up the existing database before copying the updated project.
+- Never re-import schema.sql into a live database.
+
+Validation:
+- PHP syntax checked on all PHP files using PHP 8.4 CLI.
+- Relative PHP include paths checked.
+- A live MySQL integration test was not possible in this packaging environment. Complete the manual QA checklist against your local XAMPP database before using real patient data.
+
+Important:
+- This is a development CRM starter, not a certified or production-audited EHR.
+- Configure HTTPS, database credentials, backups, privacy controls and local legal compliance before production use.

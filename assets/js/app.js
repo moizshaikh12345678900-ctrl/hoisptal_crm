@@ -1,0 +1,2 @@
+document.addEventListener('click',event=>{const el=event.target.closest('[data-confirm]');if(el&&!window.confirm(el.dataset.confirm||window.t?.('are_you_sure')||'Are you sure?'))event.preventDefault()});
+document.addEventListener('DOMContentLoaded',()=>{document.querySelectorAll('form[data-disable-submit]').forEach(form=>form.addEventListener('submit',()=>{const b=form.querySelector('[type="submit"]');if(b){b.disabled=true;b.dataset.originalText=b.innerHTML;b.innerHTML='<span class="spinner-border spinner-border-sm me-2"></span>Processing…'}}));});

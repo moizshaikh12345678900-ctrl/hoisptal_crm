@@ -1,0 +1,23 @@
+HOSPITAL CRM - RELEASE QA CHECKLIST
+
+Before using real data:
+[ ] Configure config/database.php for the local MySQL account.
+[ ] Import schema.sql into a new empty database, or apply only the documented upgrade SQL to an existing database.
+[ ] Sign in with each role and verify role-specific navigation and access restrictions.
+[ ] Create/activate a department and doctor profile.
+[ ] Configure doctor weekly hours in Doctor schedules.
+[ ] Book an appointment inside configured hours; verify out-of-hours and overlapping slots are rejected.
+[ ] Save a doctor consultation; verify appointment becomes completed and one invoice is generated.
+[ ] Complete an appointment from reception/admin; verify one invoice is generated.
+[ ] Save the same completed status again; verify no duplicate invoice is created.
+[ ] Record a partial payment; verify invoice status becomes partial and balance decreases.
+[ ] Record the remaining payment; verify invoice status becomes paid.
+[ ] Open invoice as patient and doctor; verify users cannot access another patient's/doctor's invoice.
+[ ] Print/save invoice to PDF and check A4 layout.
+[ ] Verify patient cannot see another patient's appointments, records or invoices.
+[ ] Verify CSRF-protected forms reject requests without a valid token.
+[ ] Back up and restore the database before deployment.
+[ ] Enable HTTPS, replace demo credentials, and complete a privacy/security review.
+
+Automated syntax check: run php -l against every PHP file.
+This package is a development CRM starter, not a certified EHR or production-audited system.

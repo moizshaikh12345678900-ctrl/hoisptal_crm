@@ -1,0 +1,12 @@
+Options -Indexes
+
+# Keep database exports, backups, environment files and project metadata private.
+<FilesMatch "(?i)(^\.env|\.sql$|\.sqlite3?$|\.zip$|\.bak$|\.backup$|\.log$|^README\.md$|^QA_CHECKS\.txt$|^RELEASE_NOTES\.txt$)">
+  Require all denied
+</FilesMatch>
+
+# Never execute PHP-like files from upload directories.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule ^uploads/.*\.(php[0-9]*|phtml|phar|pht|cgi|pl)$ - [F,NC,L]
+</IfModule>
